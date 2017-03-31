@@ -1,5 +1,5 @@
 import sys
-import socket
+from import socket *
 import json
 import database as db
 
@@ -10,8 +10,9 @@ debug = True
 host = ''
 port = 8000
 
-# Create the socet
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# Create the socket
+s = socket(AF_INET, SOCK_STREAM)
+s.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
 
 # Bind it to a host and port
 s.bind((host, port))
