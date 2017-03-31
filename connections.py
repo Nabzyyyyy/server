@@ -1,5 +1,5 @@
 import database as db
-import socket import *
+from socket import *
 import json
 
 HOST = '192.168.43.48'
