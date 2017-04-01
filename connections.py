@@ -13,8 +13,8 @@ def openConnection():
 def closeConnection():
     s.close()
 
-def updateDB(plate)
-    db.userInfo(plate)
+def updateDB(request):
+    request['end'] = True
     openConnection()
     s.sendall(json.dumps(request))
     response = s.recv(1024)

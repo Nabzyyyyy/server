@@ -114,12 +114,12 @@ def updateUser(plate, access):
         print 'User with requested license plate does not exist.'
 
 def userInfo(plate):
+    
     if not exists('Users'):
         print 'There are no users.'
 
-    
     conn = connect()
-
+    
     cursor  = conn.execute('SELECT * FROM Users WHERE Plate = ?', (plate,) )
     row = cursor.fetchone()
     

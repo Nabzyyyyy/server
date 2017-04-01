@@ -6,7 +6,7 @@ import connections as con
 
 def createUpdate(plate, action):
     request = {}
-    
+
     if action == 'update': 
         request['updateAccess'] = db.userInfo(plate)
     elif action == 'delete':
@@ -65,6 +65,7 @@ def createUser():
 
         #print 'Plate: '
         user['plate'] = raw_input('Plate: ')
+        plate = user['plate']
         
         #print 'Make: '
         user['make'] = raw_input('Make: ')
@@ -113,11 +114,11 @@ def createUser():
                     invalid = True
                     print 'Invalid input, please input only a "y" or "n" \n'
                     
-    plate = user['plate']
-    request ['user'] = user
-    request['end'] = True
+    #plate = user['plate']
+    request['user'] = user
     db.addUser(request['user'])
-    con.updateDB(createUpdate(plate, action))
+    request = createUpdate(plate, action)
+    con.updateDB(request)
 
 invalid = True
 
