@@ -1,5 +1,5 @@
 import sys
-from import socket *
+from socket import *
 import json
 import database as db
 
